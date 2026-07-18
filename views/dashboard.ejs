@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+<body>
+
+    <!-- Sidebar -->
+    <%- include("partials/sidebar") %>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Navbar -->
+        <%- include("partials/navbar") %>
+
+        <div class="container-fluid mt-4">
+
+            <!-- Dashboard Heading -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="fw-bold">
+                    <i class="bi bi-speedometer2 text-primary"></i>
+                    Dashboard
+                </h2>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="row">
+
+                <!-- Total Groups -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div>
+                                    <h6 class="text-muted">Total Groups</h6>
+                                    <h2 class="fw-bold"><%= counts.totalGroups %></h2>
+                                </div>
+
+                                <i class="bi bi-people-fill display-5 text-primary"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Groups -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div>
+                                    <h6 class="text-muted">Active Groups</h6>
+                                    <h2 class="fw-bold text-success"><%= counts.activeGroups %></h2>
+                                </div>
+
+                                <i class="bi bi-check-circle-fill display-5 text-success"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inactive Groups -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div>
+                                    <h6 class="text-muted">Inactive Groups</h6>
+                                    <h2 class="fw-bold text-danger"><%= counts.inactiveGroups %></h2>
+                                </div>
+
+                                <i class="bi bi-x-circle-fill display-5 text-danger"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Recent Groups -->
+            <div class="card shadow-sm border-0">
+
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-table"></i>
+                        Recent Groups
+                    </h5>
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>Group Name</th>
+                                <th>Chain ID</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+<% if (recentGroups.length > 0) { %>
+
+    <% recentGroups.forEach(group => { %>
+
+        <tr>
+
+            <td><%= group.group_name %></td>
+
+            <td>
+                <%= group.chain_id ? group.chain_id : "NULL" %>
+            </td>
+
+            <td>
+
+                <% if(group.is_active == 1){ %>
+
+                    <span class="badge bg-success">
+                        Active
+                    </span>
+
+                <% } else { %>
+
+                    <span class="badge bg-danger">
+                        Inactive
+                    </span>
+
+                <% } %>
+
+            </td>
+
+        </tr>
+
+    <% }) %>
+
+<% } else { %>
+
+    <tr>
+
+        <td colspan="3" class="text-center text-danger">
+
+            No Groups Found
+
+        </td>
+
+    </tr>
+
+<% } %>
+
+</tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

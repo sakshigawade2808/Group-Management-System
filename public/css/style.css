@@ -1,0 +1,97 @@
+/* ==========================
+   General Styles
+========================== */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================
+   Sidebar
+========================== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background: #1e3a8a;
+    padding-top: 20px;
+    overflow-y: auto;
+}
+
+/* Sidebar Heading */
+
+.sidebar h4 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Sidebar Links */
+
+.sidebar .menu-item {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+/* Hover Effect */
+
+.sidebar .menu-item:hover {
+    background: #2563eb;
+    color: white;
+    padding-left: 35px;
+}
+
+/* Sidebar Icons */
+
+.sidebar i {
+    margin-right: 10px;
+}
+
+/* Logout */
+
+.logout {
+    color: #ffb4b4 !important;
+}
+
+/* ==========================
+   Main Content
+========================== */
+
+.main-content {
+    margin-left: 250px;
+}
+
+/* ==========================
+   Navbar
+========================== */
+
+.navbar {
+    height: 70px;
+    background: white;
+}
+
+/* ==========================
+   Cards
+========================== */
+
+.card {
+    border-radius: 15px;
+}
+
+/* ==========================
+   Dashboard Heading
+========================== */
+
+h2 {
+    font-weight: 600;
+}

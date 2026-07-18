@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+<body>
+
+<%- include("partials/sidebar") %>
+
+<div class="main-content">
+
+<%- include("partials/navbar") %>
+
+<div class="container mt-4">
+    <!-- Flash Messages -->
+
+<% if(success && success.length > 0){ %>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+
+    <%= success[0] %>
+
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert">
+    </button>
+
+</div>
+
+<% } %>
+
+<% if(error && error.length > 0){ %>
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+
+    <%= error[0] %>
+
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert">
+    </button>
+
+</div>
+
+<% } %>
+
+<div class="row justify-content-center">
+
+<div class="col-lg-7">
+
+<div class="card shadow">
+
+<div class="card-header bg-primary text-white">
+
+<h4 class="mb-0">
+<i class="bi bi-plus-circle"></i>
+Add New Group
+</h4>
+
+</div>
+
+<div class="card-body">
+
+<form action="/groups/add" method="POST">
+
+<div class="mb-3">
+
+<label class="form-label">
+Group Name
+</label>
+
+<input
+type="text"
+name="group_name"
+class="form-control"
+placeholder="Enter Group Name"
+required>
+
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">
+Chain ID
+</label>
+
+<input
+type="number"
+name="chain_id"
+class="form-control"
+placeholder="Enter Chain ID">
+
+</div>
+
+<div class="form-check mb-4">
+
+<input
+class="form-check-input"
+type="checkbox"
+name="is_active"
+checked>
+
+<label class="form-check-label">
+
+Active Group
+
+</label>
+
+</div>
+
+<button
+type="submit"
+class="btn btn-primary">
+
+<i class="bi bi-save"></i>
+
+Save Group
+
+</button>
+
+<a
+href="/groups"
+class="btn btn-secondary">
+
+Cancel
+
+</a>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<%- include("partials/footer") %>
+
+</body>
+
+</html>
