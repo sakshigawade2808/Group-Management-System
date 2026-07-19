@@ -17,7 +17,6 @@ connection.connect((err) => {
         console.error("Database Connection Failed:", err.message);
         return;
     }
-
     console.log("✅ Connected to Aiven MySQL");
 });
 
